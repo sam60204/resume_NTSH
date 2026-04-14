@@ -24,6 +24,18 @@ def activities():
     return render_template('activities.html', question="", answer="") 
 
 
+#改成互動 4/14
+@app.route('/stock', methods=['GET', 'POST'])
+def stock():
+    if request.method == 'POST':
+    #2. 讀取股票號碼
+    question = request.form.get('question', '').strip()
+    #3. 查詢股票號碼的對應股價
+    answer = "抱歉,我目前沒有這個股票號碼。,
+    #4. 回傳答案給使用者
+    return render_template('stock.html', question question, answer=answer)
+    # GET 時給空白欄位
+return render_template('stock.html', question="", answer="")
 @app.route('/leadership')
 def leadership():
     return render_template('leadership.html')
